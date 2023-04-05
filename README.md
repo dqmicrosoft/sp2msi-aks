@@ -1,6 +1,6 @@
-# IAC Automation for AKS to access ACR 
+# Bring your own Managed Identities for AKS to access ACR
 
-## Change from Service Principal to Managed Identity with terraform or AZ-cli for an AKS (Azure Kubernetes Service) using ACR (Azure Container Registry)
+## Create or Update your cluster in terraform or Azure CLI for your AKS (Azure Kubernetes Service) access ACR (Azure Container Registry) with bring your own Managed Identities
 
 
 ### Managed Identity
