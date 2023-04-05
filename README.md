@@ -62,7 +62,7 @@ resource "azurerm_role_assignment" "kubelet-identity" {
 }
 ```
 
-Then we need to pass both identities in the AKS terraform resource:
+Then we need to pass both identities in the AKS terraform resource when creating or updating:
 
 ```tf
 identity {
@@ -97,7 +97,7 @@ az role assignment create --role "acrPull" --scope "<kubelet-identity-resource-i
 Creating/Updating the cluster:
 
 ```bash
-az aks update \
+az aks update/create \
     --resource-group myResourceGroup \
     --name myManagedCluster \
     --enable-managed-identity \
