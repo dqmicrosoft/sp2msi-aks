@@ -1,6 +1,6 @@
 # Bring your own Managed Identities for AKS to access ACR
 
-## Create or Update your cluster in terraform or Azure CLI for your AKS (Azure Kubernetes Service) access ACR (Azure Container Registry) with bring your own Managed Identities
+## Create or Update your cluster in Terraform or Azure CLI for your AKS (Azure Kubernetes Service) access ACR (Azure Container Registry) with bring your own Managed Identities
 
 
 ### Managed Identity
