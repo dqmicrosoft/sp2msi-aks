@@ -29,6 +29,8 @@ For this automation the control plane has to be able to managed the kubelet iden
 
 In this scenario we will use bring your own Control Plane Identity and Kubelete Identity.
 
+#### With Terraform 
+
 For control plane:
 
 ```tf
@@ -73,6 +75,28 @@ kubelet_identity {
 }
 ```
 
+#### With Azure CLI
 
+For control plane:
+```bash
+az identity create --name cp-identity --resource-group myResourceGroup
 
+az role assignment create --role "Managed Identity Operator" --scope "<CPidentity-resource-id>"
+```
+For the kubelet:
+```bash
+az identity create --name kubelet-dentity --resource-group myResourceGroup
+
+az role assignment create --role "acrPull" --scope "<kubelet-identity-resource-id>"
+```
+Creating/Updating the cluster:
+
+```bash
+az aks update \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --enable-managed-identity \
+    --assign-identity <cp-identity-resource-id> \
+    --assign-kubelet-identity <kubelet-identity-resource-id>
+```
 
